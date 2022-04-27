@@ -18,5 +18,6 @@ describe Calculator do
             result = subject.sum(4, -2)
             expect(result).to eq(2)
         end
+
     end
 end
