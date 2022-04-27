@@ -2,7 +2,6 @@ require "calculator"
 
 describe Calculator do
     
-
     context '#sum' do
         it 'with positive numbers' do
             result = subject.sum(5, 8)
@@ -20,4 +19,10 @@ describe Calculator do
         end
     end
     
+    context '#div' do
+        it 'by zero' do
+            expect{subject.div(3, 0)}.to raise_error(ZeroDivisionError)
+        end
+    end
+
 end
