@@ -3,21 +3,22 @@ require 'pessoa'
 describe 'Matchers de atributos' do
     subject(:pessoa) {Pessoa.new()}
     
-    config.before(:suite) do
-        puts "Isso aqui aparece 1x, antes dos testes começar"
-    end
     
-    config.after(:suite) do
-        puts "Isso aqui aparece 1x, depois dos testes serem feitos"
-    end
-    
-    config.before(:all) do
+    before(:all) do
         puts "Isso aqui aparece antes de cada teste"
     end
     
-    config.after(:all) do
+    after(:all) do
         puts "Isso aqui aparece depois de cada teste"
     end
+
+    around(:each) do |teste|
+        puts "isso aqui aparece antes de cada teste (around)"
+        teste.run
+        puts "isso aqui aparece depois de cada teste (around)"
+    end
+
+    
     
     
     it 'have_attributes' do
